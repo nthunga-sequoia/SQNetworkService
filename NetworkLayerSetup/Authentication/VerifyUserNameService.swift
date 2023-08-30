@@ -1,15 +1,44 @@
 //
-//  ServiceEndpoints.swift
+//  PurchaseService.swift
 //  NetworkLayerSetup
 //
 //  Created by Naveen Thunga on 29/08/23.
 //
 
 import Foundation
+import Combine
 
 public typealias Headers = [String: String]
 
-// if you wish you can have multiple services like this in a project
+protocol VerifyUserNameServiceable {
+    func verifyUserName(request: VerifyUserNameRequest) -> AnyPublisher<VerifyUserNameResponse, NetworkError>
+    func getUserProfile(request: getUserProfileRequest) -> AnyPublisher<UserProfile, NetworkError>
+}
+
+class VerifyUserNameService: VerifyUserNameServiceable {
+    func getUserProfile(request: getUserProfileRequest) -> AnyPublisher<UserProfile, NetworkError> {
+        let endpoint = VerifyUsernameEndpoints.getUserProfile(request: request)
+        let request = endpoint.createRequest(environment: self.environment)
+        return self.networkRequest.request(request)
+    }
+    
+    func verifyUserName(request: VerifyUserNameRequest) -> AnyPublisher<VerifyUserNameResponse, NetworkError> {
+        let endpoint = VerifyUsernameEndpoints.verifyUsername(request: request)
+        let request = endpoint.createRequest(environment: self.environment)
+        return self.networkRequest.request(request)
+    }
+    
+    private var networkRequest: Requestable
+    private var environment: Environment = .development
+    
+  // inject this for testability
+    init(networkRequest: Requestable, environment: Environment) {
+        self.networkRequest = networkRequest
+        self.environment = environment
+    }
+}
+
+
 enum VerifyUsernameEndpoints {
     
   // organise all the end points here for clarity
@@ -69,5 +98,3 @@ enum VerifyUsernameEndpoints {
         }
     }
 }
-
-//https://hrx-backend-dev.sequoia-development.com/uam/users/profile

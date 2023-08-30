@@ -25,7 +25,8 @@ class AuthenticationManager {
                     print("oops got an error \(error.localizedDescription)")
                 }
             } receiveValue: { response in
-                print("got my response here \(response)")
+                print("\nVerify Username API successful & data received\n")
+                print(response)
             }
             .store(in: &subscriptions)
     }
@@ -39,12 +40,13 @@ class AuthenticationManager {
             .sink { completion in
                 switch completion {
                 case .finished:
-                    print("Nothing much to do here")
+                    print("\nGet User profile API finished")
                 case .failure(let error):
                     print("oops got an error \(error.localizedDescription)")
                 }
             } receiveValue: { response in
-                print("got my response here \(response)")
+                print("\nGet user profile API successful\n")
+                print(response)
             }
             .store(in: &subscriptions)
     }

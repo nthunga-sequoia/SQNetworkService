@@ -22,7 +22,6 @@ public class NativeRequestable: Requestable {
                 Fail<T, NetworkError>(error: NetworkError.badURL("Invalid Url"))
             )
         }
-         print("\nURL - \(req)")
          print("\nRequest Type - \(req.httpMethod)")
          let bodyString = String(data: req.body ?? Data(), encoding: .utf8)
          print("\nRequest body =\(String(describing: bodyString))")
@@ -30,19 +29,47 @@ public class NativeRequestable: Requestable {
          
          return URLSession.shared
              .dataTaskPublisher(for: req.buildURLRequest(with: url))
-             .tryMap { output in
-                      // throw an error if response is nil
-                 guard output.response is HTTPURLResponse else {
+             .subscribe(on: DispatchQueue.global(qos: .default))
+             // Map on Request response
+             .tryMap({ data, response in
+                 
+                 // If the response is invalid, throw an error
+                 guard let response = response as? HTTPURLResponse else {
                      throw NetworkError.serverError(code: 0, error: "Server error")
                  }
-                 return output.data
-             }
+                                  
+                 if !(200...299).contains(response.statusCode) {
+                     throw NetworkError.serverError(code: response.statusCode, error: "Server error")
+                 }
+                 // Return Response data
+                 return data
+             })
+             .receive(on: DispatchQueue.main)
+             // Decode data using our ReturnType
              .decode(type: T.self, decoder: JSONDecoder())
+             // Handle any decoding errors
              .mapError { error in
-                        // return error if json decoding fails
                  NetworkError.invalidJSON(String(describing: error))
              }
+             // And finally, expose our publisher
              .eraseToAnyPublisher()
+
+         
+//         return URLSession.shared
+//             .dataTaskPublisher(for: req.buildURLRequest(with: url))
+//             .tryMap { output in
+//                      // throw an error if response is nil
+//                 guard output.response is HTTPURLResponse else {
+//                     throw NetworkError.serverError(code: 0, error: "Server error")
+//                 }
+//                 return output.data
+//             }
+//             .decode(type: T.self, decoder: JSONDecoder())
+//             .mapError { error in
+//                        // return error if json decoding fails
+//                 NetworkError.invalidJSON(String(describing: error))
+//             }
+//             .eraseToAnyPublisher()
     }
 }
 

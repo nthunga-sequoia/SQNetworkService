@@ -17,7 +17,7 @@ struct ContentView: View {
             Text("Hello, world!")
             Button("Veriy Username") {
                 let authenticationManager = AuthenticationManager()
-                //authenticationManager.veriyUserName(emailId: "s1demo@sequoia.com")
+                authenticationManager.veriyUserName(emailId: "s1demo@sequoia.com")
                 authenticationManager.getUserProfile()
             }
         }

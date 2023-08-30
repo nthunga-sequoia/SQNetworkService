@@ -21,7 +21,7 @@ extension Environment {
         case .staging:
             return "https://stg-combine.com/purchaseService"
         case .production:
-            return "https://hrx-backend.sequoia.com/idm/users/v2/login"
+            return "https://hrx-backend.sequoia.com/"
         }
     }
 }

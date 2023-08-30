@@ -17,10 +17,10 @@
 		ECA267F62A9DCD9C006AC3FB /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267F52A9DCD9C006AC3FB /* Requestable.swift */; };
 		ECA267F82A9DCE48006AC3FB /* NativeRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267F72A9DCE48006AC3FB /* NativeRequestable.swift */; };
 		ECA267FA2A9DCF50006AC3FB /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267F92A9DCF50006AC3FB /* NetworkRequest.swift */; };
-		ECA267FC2A9DCFAD006AC3FB /* VerifyUsernameEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267FB2A9DCFAD006AC3FB /* VerifyUsernameEndpoints.swift */; };
 		ECA267FE2A9DCFCB006AC3FB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267FD2A9DCFCB006AC3FB /* Environment.swift */; };
 		ECA268002A9DD107006AC3FB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */; };
 		ECA268022A9DD1BB006AC3FB /* VerifyUserNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */; };
+		ECA268562A9FBA47006AC3FB /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA268552A9FBA47006AC3FB /* AuthenticationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +54,10 @@
 		ECA267F52A9DCD9C006AC3FB /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		ECA267F72A9DCE48006AC3FB /* NativeRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequestable.swift; sourceTree = "<group>"; };
 		ECA267F92A9DCF50006AC3FB /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		ECA267FB2A9DCFAD006AC3FB /* VerifyUsernameEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUsernameEndpoints.swift; sourceTree = "<group>"; };
 		ECA267FD2A9DCFCB006AC3FB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserNameService.swift; sourceTree = "<group>"; };
+		ECA268552A9FBA47006AC3FB /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +108,7 @@
 		ECA267C92A9DCD70006AC3FB /* NetworkLayerSetup */ = {
 			isa = PBXGroup;
 			children = (
+				ECA268572A9FBAED006AC3FB /* Authentication */,
 				ECA267F42A9DCD87006AC3FB /* NetworkLayer */,
 				ECA267CA2A9DCD70006AC3FB /* NetworkLayerSetupApp.swift */,
 				ECA267CC2A9DCD70006AC3FB /* ContentView.swift */,
@@ -149,11 +150,18 @@
 				ECA267F72A9DCE48006AC3FB /* NativeRequestable.swift */,
 				ECA267F92A9DCF50006AC3FB /* NetworkRequest.swift */,
 				ECA267FD2A9DCFCB006AC3FB /* Environment.swift */,
-				ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */,
-				ECA267FB2A9DCFAD006AC3FB /* VerifyUsernameEndpoints.swift */,
-				ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		ECA268572A9FBAED006AC3FB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				ECA268552A9FBA47006AC3FB /* AuthenticationModel.swift */,
+				ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */,
+				ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +299,8 @@
 				ECA267F62A9DCD9C006AC3FB /* Requestable.swift in Sources */,
 				ECA267CD2A9DCD70006AC3FB /* ContentView.swift in Sources */,
 				ECA267FE2A9DCFCB006AC3FB /* Environment.swift in Sources */,
+				ECA268562A9FBA47006AC3FB /* AuthenticationModel.swift in Sources */,
 				ECA267CB2A9DCD70006AC3FB /* NetworkLayerSetupApp.swift in Sources */,
-				ECA267FC2A9DCFAD006AC3FB /* VerifyUsernameEndpoints.swift in Sources */,
 				ECA268022A9DD1BB006AC3FB /* VerifyUserNameService.swift in Sources */,
 				ECA267FA2A9DCF50006AC3FB /* NetworkRequest.swift in Sources */,
 			);
