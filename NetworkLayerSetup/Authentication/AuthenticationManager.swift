@@ -25,8 +25,7 @@ class AuthenticationManager {
                     print("oops got an error \(error.localizedDescription)")
                 }
             } receiveValue: { response in
-                print("\nVerify Username API successful & data received\n")
-                print(response)
+                print("\nVerify Username API successful\n")
             }
             .store(in: &subscriptions)
     }
@@ -46,7 +45,6 @@ class AuthenticationManager {
                 }
             } receiveValue: { response in
                 print("\nGet user profile API successful\n")
-                print(response)
             }
             .store(in: &subscriptions)
     }

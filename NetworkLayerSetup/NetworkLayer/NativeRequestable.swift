@@ -42,6 +42,8 @@ public class NativeRequestable: Requestable {
                      throw NetworkError.serverError(code: response.statusCode, error: "Server error")
                  }
                  // Return Response data
+                 let responseData = try? JSONSerialization.jsonObject(with: data)
+                 print("\nJSON response - \(String(describing: responseData))")
                  return data
              })
              .receive(on: DispatchQueue.main)
@@ -53,54 +55,7 @@ public class NativeRequestable: Requestable {
              }
              // And finally, expose our publisher
              .eraseToAnyPublisher()
-
-         
-//         return URLSession.shared
-//             .dataTaskPublisher(for: req.buildURLRequest(with: url))
-//             .tryMap { output in
-//                      // throw an error if response is nil
-//                 guard output.response is HTTPURLResponse else {
-//                     throw NetworkError.serverError(code: 0, error: "Server error")
-//                 }
-//                 return output.data
-//             }
-//             .decode(type: T.self, decoder: JSONDecoder())
-//             .mapError { error in
-//                        // return error if json decoding fails
-//                 NetworkError.invalidJSON(String(describing: error))
-//             }
-//             .eraseToAnyPublisher()
     }
 }
 
-/*
- // We use the dataTaskPublisher from the URLSession which gives us a publisher to play around with.
-  return URLSession.shared
-      .dataTaskPublisher(for: req.buildURLRequest(with: url))
-      .tryMap { data, response -> T in
-          guard
-             let response = response as? HTTPURLResponse,
-             (200..<300).contains(response.statusCode)
-          else {
-              throw NetworkError.serverError(code: 0, error: "Server error")
-          }
-          // Create JSON Decoder
-          let decoder = JSONDecoder()
-          
-          // Configure JSON Decoder
-          decoder.dateDecodingStrategy = .secondsSince1970
-          
-          do {
-              return try decoder.decode(T.self, from: data)
-          } catch {
-              print("Unable to Decode Response \(error)")
-              throw NetworkError.invalidJSON(String(describing: error))
-          }
-      }
-      .mapError { error in
-                 // return error if json decoding fails
-          NetworkError.invalidJSON(String(describing: error))
-      }
-      .eraseToAnyPublisher()
 
- */

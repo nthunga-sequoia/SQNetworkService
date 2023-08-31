@@ -25,3 +25,15 @@ extension Environment {
         }
     }
 }
+
+/*
+ - Blob data , multipart upload, multipart upload with size limit - Need to work
+ - GET, POST, PUT, DELETE - DONE
+ - Response structure - JSON, Data
+ - Custom headers
+ - Enviroment - multiple sources - DON
+ - Error handling - Logger
+ - Unit testing
+ - Mock setup
+ - SwiftData
+ */
