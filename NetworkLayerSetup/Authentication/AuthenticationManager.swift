@@ -8,10 +8,15 @@
 import Foundation
 import Combine
 
+typealias VMFailure = (_ errorObject: NetworkError) -> Void
+typealias VMSuccess = () -> Void
+typealias VMSuccessWithMsg = (_ message: String?) -> Void
+typealias VMCompletion = (_ response: Any?) -> Void
+typealias VMCompletionWithTitlesubTitle = (_ titlt: String?, _ subTitle: String?) -> Void
 
 class AuthenticationManager {
     
-    func veriyUserName(emailId: String) {
+    func veriyUserName(emailId: String, _ failure: @escaping VMFailure, success: @escaping VMSuccess) {
         var subscriptions = Set<AnyCancellable>()
         let purchaseRequest = VerifyUserNameRequest(email: emailId)
         let service = VerifyUserNameService(networkRequest: NativeRequestable(), environment: .development)
@@ -23,9 +28,11 @@ class AuthenticationManager {
                     print("Nothing much to do here")
                 case .failure(let error):
                     print("oops got an error \(error.localizedDescription)")
+                    failure(error)
                 }
             } receiveValue: { response in
                 print("\nVerify Username API successful\n")
+                success()
             }
             .store(in: &subscriptions)
     }

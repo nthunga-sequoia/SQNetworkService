@@ -8,6 +8,9 @@
 import SwiftUI
 import Combine
 
+var result = Text(verbatim: "")
+let email = "indy.ssa@abc.com"
+
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -17,8 +20,12 @@ struct ContentView: View {
             Text("Hello, world!")
             Button("Veriy Username") {
                 let authenticationManager = AuthenticationManager()
-                authenticationManager.veriyUserName(emailId: "s1demo@sequoia.com")
-                authenticationManager.getUserProfile()
+                authenticationManager.veriyUserName(emailId: email) { errorObject in
+                    
+                } success: {
+                    print("Verified")
+                }
+
             }
         }
         .padding()

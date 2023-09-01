@@ -6,10 +6,13 @@
 //
 
 import XCTest
+
 @testable import NetworkLayerSetup
 
 final class NetworkLayerSetupTests: XCTestCase {
 
+    var authenticationManager = AuthenticationManager()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -18,12 +21,27 @@ final class NetworkLayerSetupTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testValidEmail() throws {
+        let expect = expectation(description: "Verify Username")
+        authenticationManager.veriyUserName(emailId: "s1demo@sequoia.com") { errorObject in
+            XCTFail(errorObject.localizedDescription)
+            expect.fulfill()
+        } success: {
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 05, handler: nil)
+    }
+    
+    func testInvalidEmail() throws {
+        let expect = expectation(description: "Verify Username")
+        authenticationManager.veriyUserName(emailId: "s1demo@abc.com") { errorObject in
+            //XCTAssertEqual( errorObject, "ErrorDomain")
+            expect.fulfill()
+        } success: {
+            XCTFail("testcase failed")
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 05, handler: nil)
     }
 
     func testPerformanceExample() throws {

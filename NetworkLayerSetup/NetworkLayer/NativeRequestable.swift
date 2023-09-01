@@ -35,10 +35,12 @@ public class NativeRequestable: Requestable {
                  
                  // If the response is invalid, throw an error
                  guard let response = response as? HTTPURLResponse else {
+                     print("\nAPI response error = \(response)")
                      throw NetworkError.serverError(code: 0, error: "Server error")
                  }
                                   
                  if !(200...299).contains(response.statusCode) {
+                     print("\nAPI response code = \(response.statusCode)")
                      throw NetworkError.serverError(code: response.statusCode, error: "Server error")
                  }
                  // Return Response data
