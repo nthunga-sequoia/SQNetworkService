@@ -34,6 +34,7 @@ public class NativeRequestable: Requestable {
              .tryMap({ data, response in
                  
                  // If the response is invalid, throw an error
+                 let responseData = try? JSONSerialization.jsonObject(with: data)
                  guard let response = response as? HTTPURLResponse else {
                      print("\nAPI response error = \(response)")
                      throw NetworkError.serverError(code: 0, error: "Server error")
@@ -44,7 +45,6 @@ public class NativeRequestable: Requestable {
                      throw NetworkError.serverError(code: response.statusCode, error: "Server error")
                  }
                  // Return Response data
-                 let responseData = try? JSONSerialization.jsonObject(with: data)
                  print("\nJSON response - \(String(describing: responseData))")
                  return data
              })

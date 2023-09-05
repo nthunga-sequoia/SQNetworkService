@@ -27,13 +27,14 @@ extension Environment {
 }
 
 /*
- - Blob data , multipart upload, multipart upload with size limit - Need to work
+ - Blob data , multipart upload, multipart upload with size limit - Need to work - DONE
  - GET, POST, PUT, DELETE - DONE
- - Response structure - JSON, Data
+ - Response structure - JSON, Data - DONE
  - Custom headers
- - Enviroment - multiple sources - DON
+ - Enviroment - multiple sources - DONE
  - Error handling - Logger
- - Unit testing
- - Mock setup
- - SwiftData
+ - Unit testing - DONE
+ - Mock setup - DONE
+ - SwiftData - DONE [Beta stage can't incorporate in the app]
+ - Error object contains response - Need to work
  */
