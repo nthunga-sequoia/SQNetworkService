@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 var result = Text(verbatim: "")
-let email = "indy.ssa@abc.com"
+let email = "indy.ssa@mailinator.com"
 
 struct ContentView: View {
     var body: some View {

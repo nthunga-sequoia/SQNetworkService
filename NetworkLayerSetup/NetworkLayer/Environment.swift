@@ -27,7 +27,7 @@ extension Environment {
 }
 
 /*
- - Blob data , multipart upload, multipart upload with size limit - Need to work - DONE
+ - Blob data , multipart upload, multipart upload with size limit - Need to work - In progress
  - GET, POST, PUT, DELETE - DONE
  - Response structure - JSON, Data - DONE
  - Custom headers

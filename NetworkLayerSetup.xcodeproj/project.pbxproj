@@ -21,6 +21,7 @@
 		ECA268002A9DD107006AC3FB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */; };
 		ECA268022A9DD1BB006AC3FB /* VerifyUserNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */; };
 		ECA268562A9FBA47006AC3FB /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA268552A9FBA47006AC3FB /* AuthenticationModel.swift */; };
+		ECA2685C2AA85311006AC3FB /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2685B2AA85311006AC3FB /* UploadManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		ECA267FF2A9DD107006AC3FB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		ECA268012A9DD1BB006AC3FB /* VerifyUserNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserNameService.swift; sourceTree = "<group>"; };
 		ECA268552A9FBA47006AC3FB /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
+		ECA2685B2AA85311006AC3FB /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				ECA267F72A9DCE48006AC3FB /* NativeRequestable.swift */,
 				ECA267F92A9DCF50006AC3FB /* NetworkRequest.swift */,
 				ECA267FD2A9DCFCB006AC3FB /* Environment.swift */,
+				ECA2685B2AA85311006AC3FB /* UploadManager.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				ECA268562A9FBA47006AC3FB /* AuthenticationModel.swift in Sources */,
 				ECA267CB2A9DCD70006AC3FB /* NetworkLayerSetupApp.swift in Sources */,
 				ECA268022A9DD1BB006AC3FB /* VerifyUserNameService.swift in Sources */,
+				ECA2685C2AA85311006AC3FB /* UploadManager.swift in Sources */,
 				ECA267FA2A9DCF50006AC3FB /* NetworkRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
